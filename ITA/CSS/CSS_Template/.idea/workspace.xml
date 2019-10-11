@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="145e81f6-7cfb-4188-997b-84a34ddc2b27" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/CSS_Starter_Files/21_image_gallery_again.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS_Starter_Files/BOX_model30.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CSS_Starter_Files/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS_Starter_Files/01_CSS_COLORS.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS_Starter_Files/01_CSS_COLORS.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS_Starter_Files/10_CSS_Tables.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS_Starter_Files/10_CSS_Tables.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS_Starter_Files/18_CSS_Dropdown_Navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS_Starter_Files/18_CSS_Dropdown_Navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS_Starter_Files/20_CSS_Forms.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS_Starter_Files/20_CSS_Forms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS_Starter_Files/21_Image_Gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS_Starter_Files/21_Image_Gallery.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS_Starter_Files/26_CSS_Buttons.html" beforeDir="false" afterPath="$PROJECT_DIR$/CSS_Starter_Files/26_CSS_Buttons.html" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CSS_Starter_Files/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="559">
+                <caret line="750" selection-start-line="750" selection-end-line="750" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CSS_Starter_Files/BOX_model30.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="19" lean-forward="true" selection-end-line="45" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/CSS_Starter_Files/01_CSS_COLORS.html" />
+        <option value="$PROJECT_DIR$/CSS_Starter_Files/20_CSS_Forms.html" />
+        <option value="$PROJECT_DIR$/CSS_Starter_Files/10_CSS_Tables.html" />
+        <option value="$PROJECT_DIR$/CSS_Starter_Files/18_CSS_Dropdown_Navbar.html" />
+        <option value="$PROJECT_DIR$/CSS_Starter_Files/21_image_gallery_again.html" />
+        <option value="$PROJECT_DIR$/CSS_Starter_Files/21_Image_Gallery.html" />
+        <option value="$PROJECT_DIR$/CSS_Starter_Files/26_CSS_Buttons.html" />
+        <option value="$PROJECT_DIR$/CSS_Starter_Files/B0X_model30.css" />
+        <option value="$PROJECT_DIR$/CSS_Starter_Files/BOX_model30.html" />
+        <option value="$PROJECT_DIR$/CSS_Starter_Files/README.md" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/CSS_Template.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="676" />
+    <option name="width" value="697" />
+    <option name="height" value="775" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CSS_Template" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSS_Template" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSS_Template" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSS_Template" type="462c0819:PsiDirectoryNode" />
+              <item name="CSS_Starter_Files" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="145e81f6-7cfb-4188-997b-84a34ddc2b27" name="Default Changelist" comment="" />
+      <created>1570103755688</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570103755688</updated>
+      <workItem from="1570103757480" duration="6999000" />
+      <workItem from="1570111109808" duration="82000" />
+      <workItem from="1570121820695" duration="7725000" />
+      <workItem from="1570181356423" duration="3400000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="18206000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.3353566" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32866043" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CSS_Starter_Files/01_CSS_COLORS.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="40" column="7" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS_Starter_Files/02_CSS_Backgrounds.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS_Starter_Files/20_CSS_Forms.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS_Starter_Files/10_CSS_Tables.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="39" column="27" lean-forward="true" selection-end-line="90" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS_Starter_Files/18_CSS_Dropdown_Navbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="98" column="13" lean-forward="true" selection-end-line="102" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS_Starter_Files/21_image_gallery_again.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS_Starter_Files/21_Image_Gallery.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS_Starter_Files/26_CSS_Buttons.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="116" column="31" lean-forward="true" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS_Starter_Files/B0X_model30.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS_Starter_Files/BOX_model30.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="19" lean-forward="true" selection-end-line="45" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSS_Starter_Files/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="559">
+            <caret line="750" selection-start-line="750" selection-end-line="750" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

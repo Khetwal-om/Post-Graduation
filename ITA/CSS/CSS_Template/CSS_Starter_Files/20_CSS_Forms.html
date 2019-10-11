@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS forms</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap/css/font-awesome.min.css">
+    <style>
+        body{
+            font-family: Arial, sans-serif,"Franklin Gothic Heavy";
+            background-image: url("img/sunset.png");
+            background-size: cover;
+        }
+
+
+        .form-div{
+            border: 2px solid teal;
+            border-radius: 15px;
+            width: 400px;
+            text-align: center;
+            margin: 50px 20px 20px 20px;
+            background-image: url("https://www.animatedimages.org/data/media/165/animated-football-and-soccer-image-0093.gif");
+            background-size: cover;
+            box-shadow: 0 0 15px lightsalmon;
+        }
+
+        /* this is h2 within div*/
+        .form-div h2{
+            color: lightsalmon;
+        }
+
+
+        input[type="text"],input[type="password"]
+        {
+            height: 30px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 7px;
+        }
+
+        input[type="text"]:focus,input[type="password"]:focus
+        {
+            outline: none;
+            background-color: lightyellow;
+        }
+
+        input[type="submit"]
+        {
+            background-color: lightyellow;
+            border-radius: 19px;
+            font-size: 16px;
+            padding: 8px 20px;
+            margin: 5px 1px 25px 1px;
+        }
+
+        input[type="submit"]:hover
+        {
+            opacity: 0.8;
+            cursor: pointer;
+            box-shadow: 0 0 15px blanchedalmond;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Login Form -->
+    <div class="form-div">
+        <h2>Login Here</h2>
+        <form>
+            <input type="text" placeholder="User Name">
+            <br>
+            <input type="password" placeholder="Password">
+            <br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+</body>
+</html>
