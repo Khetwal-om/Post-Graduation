@@ -3880,3 +3880,725 @@ To take input output use *System.in* .
 
 > System.in gives 1 character only
 
+
+
+
+
+---
+
+#OCT 11
+
+---
+
+
+
+1. We can manipulate input output stream by the help of bytestream too. The two classes **InputStream**
+and  **OutputStream** are used for this purpose. These classes have several subclasses with specific task
+
+
+InputStream   |  OutputStream
+ ------------ | ------------
+ ObjectInputStream   FileInputStream | ObjectOutputStream FileOutputStream 
+ DataInputStream  BufferedInputStream  |  DataOutputStream  BufferedOutputStream
+
+---
+
+>FileInputStream \
+DataInputStream , BufferedInputStream
+
+
+---
+
+---
+
+>FileOutputStream\
+ DataOutputStream,BufferedInputStream
+
+---
+
+
+2. We can write into a file by the help of FileOutputStream if we are dealing with stream classes under
+category *Byte* .We deal with 8-bit data.
+
+
+3. **Writer and Reader** classes use **16bit** *Character* stream. 
+
+4. We can use *FileWriter* class to create a new file and write a string to it on the other hand 
+the *FileOutputStream* can write only single 8 bit ASCII value
+
+```java
+import java.io.*;
+
+public class Hachiko 
+{
+  public static void main(String[] args) throws IOException{
+      FileWriter fw=new FileWriter("usingfilewrite.txt");
+      FileOutputStream fos=new FileOutputStream("usingfileoutputstream.txt"); //byte stream 8bit
+      fw.write("samuel");
+      fw.close();
+
+      fos.write('a');
+      fos.close();
+  } 
+}
+
+
+* Two new files are created usingfilewrite.txt and usingfileoutputstream
+
+usingfilewrite have samuel in it while usingfileoutputstream  have a in it.
+```
+
+5. Now lets try to write "a" instead of 'a' in fos.write i.e in object of *FileOutputStream*
+
+```java
+import java.io.*;
+
+public class Hachiko 
+{
+  public static void main(String[] args) throws IOException{
+      FileWriter fw=new FileWriter("usingfilewrite.txt");
+      FileOutputStream fos=new FileOutputStream("usingfileoutputstream.txt"); //byte stream 8bit
+      fw.write("samuel");
+      fw.close();
+
+      fos.write("a");
+      fos.close();
+  } 
+}
+
+
+no suitable method found for write(String)
+                        fos.write("a");
+                           ^
+    method FileOutputStream.write(int) is not applicable
+      (argument mismatch; String cannot be converted to int)
+    method FileOutputStream.write(byte[]) is not applicable
+      (argument mismatch; String cannot be converted to byte[])
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error
+
+```
+
+6. Try to write 
+
+```java
+
+      fos.write('abc');
+```
+
+---
+chiko.java:11: error: unclosed character literal
+                        fos.write('abc');
+
+---
+
+:+1:   :heart:  
+
+###Try to send byte array to this fos  .
+
+
+```java
+import java.io.*;
+
+public class Hachiko 
+{
+  public static void main(String[] args) throws IOException{
+      
+
+      FileOutputStream fos=new FileOutputStream("usingfileoutputstream.txt"); //byte stream 8bit
+      
+      String s="abc";
+
+      byte bytearray[]=s.getBytes();
+
+
+      for (byte data : bytearray) {
+        System.out.println(data);
+      }
+
+      fos.write(bytearray);
+      fos.close();
+      
+  } 
+}
+
+```
+
+
+7. Using these Stream classes we write state of an object into a file and this si called *object Serailization*  . We can read object value when required. We can write only those object into a file 
+which are *serializable* .The following can be used for this purpose.
+
+> ObjectOutputStream \
+ObjectInputStream 
+
+8. We can write object into a file using write **object method**.
+
+```java
+
+```
+
+
+9. We can make an object *serializable* by implementing an *Interface* name *serializable*. It is a 
+__Marker Interface__ : are those interfaces which have no method to  be *overridden*.
+
+10. We have to keep the order in the mind. First written will be read first . ?
+
+11. We can read from a file by the help of read object method this method returns object which should be downcasted properly in order to use.
+
+12. We can't write a method to a file but a *variable* can be written. If we want to avoid a variable from saving into the file we must declare it *transient*.
+
+```java
+transient int i=1;
+```
+
+
+---
+
+#Threading
+
+
+1. Thread is a programme in execution. It is lightweight process two or more thread can execute 
+controlling each other *sharing common resource*.As threads are sharing same resources(memory) . So
+are called light weight process.
+
+
+2. Execution of a Thread starts with its lifecycle so there is no need of main method in the thread
+program?
+
+3. There is atleast one thread running a program named *main* thread. Main thread can control another threads.
+
+4. We can create thread in two ways.
+
+> *By extending Thread class*\
+By implementing Runnable Interface
+
+
+5. We can extend a *Thread* class to create a thread.
+6. A *Thread* class have several methods to follow its lifecycle like start(),sleep(),stop(),wait().
+In order to perform some task by a thread we have to override *run()* method of it.
+
+
+```java
+import java.io.*;
+
+public class Hachiko 
+{
+  public static void main(String[] args){
+        
+
+  } 
+}
+
+
+class B extends Thread{
+  public void run()
+  {
+
+  }
+}
+```
+
+---
+
+7. We can start execution of a thread by calling start method on it. *start* method internally calls
+*run()* method.
+
+8. When we call *start()* method on threads all thread will go into *Runnable* state. *Runnable* is always ready to run.
+
+9. We can Interrupt execution of a thread for a while using sleep() method on it.
+
+> *sleep()* method works on current object. \
+It throws **checked** exception named *InterruptedException* .
+
+10. *sleep()* method blocks current object  i.e., from where it is called it blocks that object.
+
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+1. We can create thread in two ways
+
+> *By extending Thread class\
+*By implementing Runnable interface*
+
+
+2. Execution of a thread follows its lifecyle
+
+3. A __Thread__ class have several methods to follow its lifecycle like start,sleep(). In order
+to perform some task by a thread we have to override run() method of it.
+
+
+```java
+A{
+  class B extends Thread 
+
+
+  {
+    pbilc void run()
+    {
+
+    }
+  }
+}
+```
+
+
+4. We can start execution of a thread by calling start method on it. Start method internally calls 
+run() method on it.
+
+5. When we call start method on threads all thread will go into *Runnable* mode. Runnable means
+ready to run.
+
+6. We can interrupt execution of a thread for a while using sleep( method on it.)
+
+> sleep() method works on current object . Also it throws exception named InterruptedException under category.
+
+---
+
+7. Sleep method blocks current object i.e. from where it is called it blocks that object.
+
+---
+
+8. Anonymous class?
+
+9. 
+
+```java
+class Lyon
+{
+  public static void main(String[] args) {
+    Thread t=Thread.currentThread();
+
+
+    System.out.println("Current thread  ***********"+t);
+
+    t.setName("This is my bitch");
+
+    System.out.println("Changed the name"+t);
+
+
+    try{
+      for(int i=5;i>0;i--)
+      {
+        System.out.println(i);
+        Thread.sleep(1000);  //ms
+      }
+    }
+    catch (Exception e)
+    {
+      System.out.println(e);
+      System.out.println("Interruption in main thread");
+    }
+  }
+}
+```
+
+
+
+
+
+#OCT 12
+
+---
+
+
+
+
+```java
+public class A{
+
+  public static void main(String[] args) {
+    B b=new B()
+    {
+      void show() 
+      {}
+      void display()
+      {}  
+
+
+    };
+  }
+}
+
+
+abstract class B{
+  abstract void show();
+}
+```
+
+
+
+2. int a[10]  10 shouldn't be written here because memory to this array a will be allocated with
+the help of *new* but **new** always allocated memory at run time.
+
+```java
+int a[]=new int[10];
+```
+
+3. __Anonymous array__
+
+```java
+public class A{
+
+  public static void main(String[] args) {
+
+    int array[]=new int[]
+    {
+      1,2,3
+    };
+
+    for (int element :array ) {
+      System.out.println(element);
+    }
+}
+
+
+}
+
+```
+
+---
+output
+
+1
+2
+3
+
+---
+
+
+
+
+4. In the same manner *Thread* class can be used anonymously.
+
+> second hola is printed after 5 seconds.  \
+*sleep()* method is always throws InterruptedException so it must be handled at compile time so
+that it can be resolved at run time.
+
+```java
+public class A{
+
+  public static void main(String[] args)  throws InterruptedException{
+  
+    Thread t1=new Thread(){
+
+    public void run(){
+
+                 }
+
+  };
+
+    System.out.println("Hola");
+    t1.sleep(5000);
+    System.out.println("Hola");
+
+
+  }
+
+
+}
+
+
+
+```
+
+
+5. Example .
+
+```java
+public class A{
+
+  public static void main(String[] args)  throws InterruptedException{
+  
+    Thread t1=new Thread(){
+
+    public void run(){
+
+                 }
+
+  };
+
+    t1.start();
+
+  }
+
+
+}
+
+
+```
+
+
+6. This too works 
+
+
+```java
+public class A{
+
+  public static void main(String[] args)  throws InterruptedException{
+  
+    Thread t1=new Thread(){};
+    System.out.println(t1.getName());
+}
+
+}
+
+
+```
+
+
+7. Printing *Thread* class object gives  name,priority,group when __default__ constructor is given.
+
+> Thread[Thread-0,5,main]
+
+```java
+public class A{
+
+  public static void main(String[] args)  throws InterruptedException{
+  
+    Thread t1=new Thread(){};
+    System.out.println(t1);
+}
+
+}
+
+```
+
+8. When *default constructor* isn't used 
+
+```java
+
+
+```
+
+9. *setName()*
+
+```java
+public class A{
+
+  public static void main(String[] args)  throws InterruptedException{
+  
+  Thread a=new Thread();
+  Thread b=new Thread();
+
+  System.out.println(a);
+  System.out.println(b);
+
+  a.setName("first");
+  b.setName("second");
+
+
+  System.out.println(a);
+  System.out.println(b);
+
+  Thread c=new Thread();
+  System.out.println(c);
+
+}
+
+}
+
+
+o/p 
+Thread[Thread-0,5,main]
+Thread[Thread-1,5,main]
+Thread[first,5,main]
+Thread[second,5,main]
+Thread[Thread-2,5,main]
+
+```
+
+
+10. *isAlive()*
+
+
+11. Any of the thread can start .
+
+```java
+public class A{
+
+  public static void main(String[] args)  throws InterruptedException{
+  
+    B b=new B();
+    C c=new C();
+
+    b.start();
+    c.start();
+
+  }
+
+}
+
+
+class B extends Thread
+{
+  public  void run()
+  {
+    for (int i=0; i<7 ;++i ) {
+      try{
+        System.out.println(i);
+        sleep(100);
+
+      }
+      catch (Exception e)
+      {
+        System.out.println(e);
+      }
+    }
+  }
+}
+
+
+class C extends Thread
+{
+  public  void run()
+  {
+    for (int i=0; i<7 ;++i ) {
+      try{
+        System.out.println(i);
+        sleep(30);
+      }
+      catch (Exception e)
+      {
+        System.out.println(e);
+      }
+    }
+  }
+}
+
+
+
+0
+0
+1
+2
+3
+1
+4
+5
+6
+2
+3
+4
+5
+6
+
+If b  and c are printed
+
+b
+c
+c
+c
+c
+b
+c
+c
+c
+b
+b
+b
+b
+b
+
+```
+
+
+
+
+
+
+12. *join()* method makes one thread to execute first and finish it.
+
+```java
+public class A{
+
+  public static void main(String[] args)  throws InterruptedException{
+  
+    B b=new B();
+    C c=new C();
+
+    b.start();
+    b.join();
+    c.start();
+
+  }
+
+}
+
+
+class B extends Thread
+{
+  public  void run()
+  {
+    for (int i=0; i<7 ;++i ) {
+      try{
+        System.out.println('b');
+        sleep(100);
+
+      }
+      catch (Exception e)
+      {
+        System.out.println(e);
+      }
+    }
+  }
+}
+
+
+class C extends Thread
+{
+  public  void run()
+  {
+    for (int i=0; i<7 ;++i ) {
+      try{
+        System.out.println('c');
+        sleep(30);
+      }
+      catch (Exception e)
+      {
+        System.out.println(e);
+      }
+    }
+  }
+}
+
+
+
+
+
+b
+b
+b
+b
+b
+b
+b
+c
+c
+c
+c
+c
+c
+c
+
+
+```
+
+
+---
+
+

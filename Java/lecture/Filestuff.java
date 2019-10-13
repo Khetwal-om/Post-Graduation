@@ -1,12 +1,18 @@
-import java.io.*;
+import java.util.Arrays;
 
 public class Filestuff
 {
-	public static void main(String[] args) throws IOException
+	public static void main(String[] args) 
     {
  		
- 		System.out.println((int)'*');
+ 		String array[]=args;
+ 		for (String s : array ) {
+ 			System.out.print(s+" ");
+ 		}
 
- 		System.out.println((int)' ');
+ 		Arrays.sort(array);
+ 		for (String s : array ) {
+ 			System.out.print(s+" ");
+ 		}
     }
 }
