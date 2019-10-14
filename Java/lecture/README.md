@@ -3994,6 +3994,8 @@ chiko.java:11: error: unclosed character literal
 
 :+1:   :heart:  
 
+
+
 ###Try to send byte array to this fos  .
 
 
@@ -4052,7 +4054,133 @@ transient int i=1;
 ```
 
 
+
+
+13. 
+
+
+#Serialization
+
+```java
+
+import java.io.*;
+
+
+public class SerializationConcept
+{
+  public static void main(String[] args) throws IOException,ClassNotFoundException{
+
+    Check object=new Check("first","second");
+    FileOutputStream fobj=new FileOutputStream("data.txt");
+    ObjectOutputStream oos=new ObjectOutputStream(fobj);
+    oos.writeObject(object);
+
+    oos.close();
+    fobj.close();
+
+
+
+    Check obj=null;
+    FileInputStream file=new FileInputStream("data.txt");
+    ObjectInputStream ois=new ObjectInputStream(file);
+
+    
+    obj=(Check)ois.readObject();
+    System.out.println(obj.a);
+    System.out.println(obj.b);
+
+    file.close();
+    ois.close();
+
+
+
+
+
+
+  }
+}
+
+
+class Check implements Serializable
+{
+  String a;
+  String b;
+  public Check(String s1,String s2)
+  {
+    this.a=s1;
+    this.b=s2;
+  }
+
+}
+
+```
+
+
+
+2. Transient data member can't be saved .
+
+```java
+import java.io.*;
+
+
+public class SerializationConcept
+{
+  public static void main(String[] args) throws IOException,ClassNotFoundException{
+
+    Check object=new Check("first","second");
+    FileOutputStream fobj=new FileOutputStream("data.txt");
+    ObjectOutputStream oos=new ObjectOutputStream(fobj);
+    oos.writeObject(object);
+
+    oos.close();
+    fobj.close();
+
+
+
+    Check obj=null;
+    FileInputStream file=new FileInputStream("data.txt");
+    ObjectInputStream ois=new ObjectInputStream(file);
+
+    
+    obj=(Check)ois.readObject();
+    System.out.println(obj.a);
+    System.out.println(obj.b);
+
+    file.close();
+    ois.close();
+
+
+
+
+
+
+  }
+}
+
+
+class Check implements Serializable
+{
+  transient String a;
+  String b;
+  public Check(String s1,String s2)
+  {
+    this.a=s1;
+    this.b=s2;
+  }
+
+}
+
+
+
+
+null
+second
+```
+
 ---
+
+---
+
 
 #Threading
 
@@ -4136,7 +4264,399 @@ It throws **checked** exception named *InterruptedException* .
 *By implementing Runnable interface*
 
 
+```java
+class A extends Thread
+{
+  public void run()
+  {
+    for(int i=0;i<5;i++)
+      System.out.println("From A ..."+i);
+
+    System.out.println("Bye     A");
+  }
+}
+
+class B extends Thread
+{
+  public void run()
+  {
+    for(int i=0;i<5;i++)
+      System.out.println("From B ..."+i);
+
+    System.out.println("Bye     B");
+  }
+}
+
+class C extends Thread
+{
+  public void run()
+  {
+    for(int i=0;i<5;i++)
+      System.out.println("From C ..."+i);
+
+    System.out.println("Bye     C");
+  }
+}
+
+
+public class ThreadTest
+{
+  public static void main(String[] args) {
+    new A().start();
+    new B().start();
+    new C().start();
+  }
+}
+
+
+
+D:\Post Graduation\Java\lecture>java ThreadTest
+From A ...0
+From C ...0
+From B ...0
+From C ...1
+From A ...1
+From C ...2
+From B ...1
+From C ...3
+From A ...2
+From C ...4
+From B ...2
+Bye     C
+From A ...3
+From A ...4
+From B ...3
+Bye     A
+From B ...4
+Bye     B
+
+```
+
+
 2. Execution of a thread follows its lifecyle
+
+
+> 1. *Newborn state*\
+*Runnable state*\
+*Running state*\
+*Blocked state*\
+*Dead state*\
+
+
+
+
+
+ * __Newborn__ : A thread is born . We can do two things with this-
+
+ Newborn--->start() ---> *Runnable*
+ Newborn--->stop()  ---> *Dead state*
+
+
+
+ * __Runnable__  : The *runnable* state means that the thread is ready for *execution* and it is waiting
+ for the availability of the processor.
+
+  Running Thread ---> yield() ---> __Runnable Thread__
+
+
+ * __Running__  : *Running* means that the processor has given its time to the thread for its *execution*. 
+
+  *Running* ---> suspend(),sleep(),wait() [wait() can be scheduled to run again using notify() ] ---> Blocked state
+
+ * __blocked__  : means a thread is prevented from entering into the runnable state subsequently *running* state
+
+ * __Dead state__: when a thread has completed executing its *run()* method.
+
+
+
+---
+
+1. Use of *yield()* , *stop()* and *sleep()* method.
+
+> yield() method in thread A at iteration i=1,has relinquished its control to the thread B.
+The *stop()* in thread B has killed it after implementing for loop thrice. 
+ 
+
+
+```java
+
+class A extends Thread
+{
+  public void run()
+  {
+    for(int i=0;i<=4;i++)
+    {
+      if(i==1)
+        yield();
+
+      System.out.println("From thread  A  "+i);
+    }
+
+    System.out.println("Bye from A");
+  }
+}
+
+class B extends Thread
+{
+  public void run()
+  {
+    for(int i=0;i<=4;i++)
+    {
+      if(i==3)
+        stop();
+
+      System.out.println("From thread  B  "+i);
+    }
+
+    System.out.println("Bye from B");
+  }
+}
+
+
+
+class C extends Thread
+{
+  public void run()
+  {
+    for(int i=0;i<=5;i++)
+    {
+      System.out.println("From c"+i);
+      if(i==3)
+      try
+      {
+        sleep(3000);
+      }
+      catch (Exception e)
+      {
+
+      }
+    }
+
+    System.out.println("Bye from C");
+  }
+}
+
+
+
+
+
+public class ThreadTest
+{
+  public static void main(String[] args) {
+    A threadA=new A();
+    B threadB=new B();
+    C threadC=new C();
+
+
+    System.out.println("Start thread A");
+    threadA.start();
+
+
+    System.out.println("Start thread B");
+    threadB.start();
+
+
+    System.out.println("Start thread C");
+    threadC.start();
+
+
+
+    System.out.println("This is the end of main thread");
+  }
+}
+
+
+
+Start thread A
+Start thread B
+Start thread C
+This is the end of main thread
+From c0
+From thread  B  0
+From thread  A  0
+From thread  B  1
+From c1
+From thread  B  2
+From thread  A  1
+From c2
+From thread  A  2
+From c3
+From thread  A  3
+From thread  A  4
+Bye from A
+From c4
+From c5
+Bye from C
+
+
+```
+
+# Using priority with thread
+
+```java
+class A extends Thread
+{
+  public void run()
+  {
+    System.out.println("A is started");
+    for(int i=0;i<=10;i++)
+    {
+
+      System.out.println("From thread  A  "+i);
+    }
+
+    System.out.println("Bye from A");
+  }
+}
+
+class B extends Thread
+{
+
+
+  public void run()
+  {
+    System.out.println("threadB started");
+    for(int i=0;i<=10;i++)
+    {
+    
+      System.out.println("From thread  B  "+i);
+    }
+
+    System.out.println("Bye from B");
+  }
+}
+
+
+
+class C extends Thread
+{
+  public void run()
+  {
+    System.out.println("threadC started");
+    for(int i=0;i<=10;i++)
+    {
+      System.out.println("From thread C"+i);
+    
+    }
+
+    System.out.println("Bye from C");
+  }
+}
+
+
+
+
+
+public class ThreadTest
+{
+  public static void main(String[] args) {
+    A threadA=new A();
+    B threadB=new B();
+    C threadC=new C();
+
+
+    threadC.setPriority(Thread.MAX_PRIORITY);
+    threadB.setPriority(threadA.getPriority()+1);
+
+    threadA.setPriority(Thread.MIN_PRIORITY);
+
+
+    System.out.println(threadA.getPriority());
+    System.out.println(threadB.getPriority());
+    System.out.println(threadC.getPriority());
+
+    System.out.println("Start thread A");
+    threadA.start();
+
+
+    System.out.println("Start thread B");
+    threadB.start();
+
+
+    System.out.println("Start thread C");
+    threadC.start();
+
+
+
+    System.out.println("This is the end of main thread");
+  }
+}
+
+
+ 
+
+
+
+
+
+D:\Post Graduation\Java\lecture>java ThreadTest
+1
+6
+10
+Start thread A
+Start thread B
+A is started
+Start thread C
+threadB started
+This is the end of main thread
+threadC started
+From thread  B  0
+From thread C0
+From thread  B  1
+From thread C1
+From thread  B  2
+From thread C2
+From thread  B  3
+From thread C3
+From thread  B  4
+From thread C4
+From thread  B  5
+From thread C5
+From thread  B  6
+From thread  A  0
+From thread C6
+From thread  A  1
+From thread  B  7
+From thread  A  2
+From thread C7
+From thread C8
+From thread C9
+From thread C10
+From thread  A  3
+From thread  B  8
+From thread  A  4
+Bye from C
+From thread  A  5
+From thread  B  9
+From thread  A  6
+From thread  B  10
+From thread  A  7
+Bye from B
+From thread  A  8
+From thread  A  9
+From thread  A  10
+Bye from A
+
+D:\Post Graduation\Java\lecture>
+
+```
+
+---
+
+
+
+
+# Synchronization
+
+
+# Implementing the 'Runnable interface'
+
+
+
+
+
+
+
 
 3. A __Thread__ class have several methods to follow its lifecycle like start,sleep(). In order
 to perform some task by a thread we have to override run() method of it.
@@ -4315,6 +4835,161 @@ public class A{
 
 
 ```
+
+---
+
+
+
+
+
+# Static nested class
+
+```java
+class Language
+{
+  static int mbappe=7;
+  static private int leo=10;
+  int cr=7;
+
+  static class Espanyol
+  {
+    static void display()
+    {
+      System.out.println(mbappe);
+
+      System.out.println(leo);
+    }
+  }
+}
+
+public  class Ziych
+{
+  public static void main(String[] args) {
+    Language.Espanyol obj=new Language.Espanyol();
+    obj.display();  
+  }
+}
+```
+
+
+
+# Inner class
+
+*we can use static as well as non-static variables within non-static method but not in static method*
+> We will have to access them by **Class** name.
+
+---
+
+
+```java
+class OuterClass
+{
+  static int mbappe=7;
+  static private int leo=10;
+  int cr=7;
+
+   class InnerClass
+  {
+     void display()
+    {
+      System.out.println(mbappe);
+
+      System.out.println(leo);
+      System.out.println("ksfjkl");
+    }
+  }
+}
+
+public  class Ziych
+{
+  public static void main(String[] args) {
+   
+
+
+   OuterClass outerObject = new OuterClass(); 
+    OuterClass.InnerClass innerObject = outerObject.new InnerClass(); 
+    
+    innerObject.display(); 
+    
+  }
+}
+```
+
+---
+
+
+# Anonymous class
+
+1. This is the main concept
+
+```java
+
+interface Languages
+{
+  int i=10;
+  public abstract void Display();
+}
+
+
+class Spanish implements Languages
+{
+  @Override
+  public void Display()
+  {
+    System.out.println("Hola ahi "+10);
+  }
+}
+
+public class AnonymousClass
+{ 
+
+  public static void main(String[] args) {
+    Spanish obj=new Spanish();
+    obj.Display();
+  }
+}
+
+```
+
+2. This is the way to do the above
+
+```java
+interface Languages
+{
+  int i=10;
+  public abstract void Display();
+}
+
+
+
+public class AnonymousClass
+{ 
+
+  public static void main(String[] args) {
+    Languages obj=new Languages()
+    {
+      public void Display()
+      {
+        System.out.println("Hola ahi"+10);
+      }
+    };
+
+    
+    obj.Display();
+  }
+}
+
+
+```
+
+
+
+
+
+
+
+
+---
 
 
 5. Example .
