@@ -5277,3 +5277,249 @@ c
 ---
 
 
+
+
+---
+# OCT 15
+
+1. __Daemon Thread__:
+
+
+
+
+2. __Runnable Interface__: *Runnable* interface have only one method *run()* which should be
+overridden to preform some task. We can create Thread object by passing runnable instance in its 
+constructor to call start method.
+
+```java
+public class ThreadTest
+
+{
+  public static void main(String[] args) {
+    B b=new B();
+    Thread obj=new Thread(b);
+    obj.start();
+  }
+}
+
+
+class B implements Runnable
+{
+  public void run()
+  {
+    System.out.println("hola");
+  }
+}
+```
+
+
+3. Two or more *Thread* can share common resource.
+
+```java
+public class ThreadTest
+
+{
+  public static void main(String[] args) {
+    D d=new D();
+    B b=new B(d);
+    b.start();
+    C c=new C(d);
+    c.start();
+  }
+}
+
+
+class D
+{
+  synchronized void print(int n)
+  {
+    for(int i=0;i<=10;i++)
+    {
+      try{
+        Thread.sleep(1000);
+      }
+      catch (Exception e)
+      {
+
+      }
+      System.out.println(n*i);
+    }
+  }
+}
+
+class B extends Thread 
+{
+  D d;
+  B(D d)
+  {
+    this.d=d;
+  }
+  public void run()
+  {
+    d.print(7);
+  }
+}
+
+
+class C extends Thread 
+{
+  D d;
+  C(D d)
+  {
+    this.d=d;
+  }
+  public void run()
+  {
+    d.print(11);
+  }
+}
+
+0
+7
+14
+21
+28
+35
+42
+49
+56
+63
+70
+0
+11
+22
+33
+44
+55
+66
+77
+88
+99
+110
+
+```
+       
+  * We can remove try catch from synchronized void print()
+
+```java
+public class ThreadTest
+
+{
+  public static void main(String[] args) {
+    D d=new D();
+    B b=new B(d);
+    b.start();
+    C c=new C(d);
+    c.start();
+  }
+}
+
+
+class D
+{
+  synchronized void print(int n)
+  {
+    for(int i=0;i<=10;i++)
+    {
+      
+      System.out.println(n*i);
+    }
+  }
+}
+
+class B extends Thread 
+{
+  D d;
+  B(D d)
+  {
+    this.d=d;
+  }
+  public void run()
+  {
+    d.print(7);
+  }
+}
+
+
+class C extends Thread 
+{
+  D d;
+  C(D d)
+  {
+    this.d=d;
+  }
+  public void run()
+  {
+    d.print(11);
+  }
+}
+
+
+```
+
+
+4. *Thread Synchronization* is a way to deal with deadlock like condition. We can use synchronized
+keyword for this purpose .
+**Synchronized** can be used with a method that is going to share common resource -:
+
+```java
+synchronized void print()
+{
+
+}
+```
+
+
+5. We can also use synchronized keyword with object using synchronized block
+
+
+
+6. Make the method  *static* in order to show synchronization.
+
+```java
+public class ThreadTest
+
+{
+  public static void main(String[] args) {
+      
+      new B().start();
+      new C().start();
+  }
+}
+
+
+class D
+{
+    static void print(int n)
+  {
+    for(int i=0;i<=10;i++)
+    {
+      
+      System.out.println(n*i);
+    }
+  }
+}
+
+class B extends Thread 
+{
+  public void run()
+  {
+    D.print(7);
+  }
+}
+
+
+class C extends Thread 
+{
+  public void run()
+  {
+    D.print(11);
+  }
+}
+
+
+```
+
+
+
+---
