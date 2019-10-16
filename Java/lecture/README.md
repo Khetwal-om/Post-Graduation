@@ -2361,7 +2361,8 @@ Spanish.java:11: error: third() has private access in English
 
 ---
 
-#### Conversion
+
+####Conversion
 
 
 1. Boxing : converting primitive data type to an object
@@ -2954,7 +2955,7 @@ B@4cc77c2e
 
 # sept 27
 
-    :disappointed:
+    :smile: :heart:
 
 ---
 
@@ -2966,7 +2967,7 @@ standard input output devices by the help of several stream classes. The two typ
 
 > :+1:  Character stream    :smile: Byte stream(8 bit data) \
  The two predefined streams can be used directly to manipulate iput output operation. These are
- 	__system.in__ _output stream_ and __system.out__ , __system.err__ ( _input stream_) . \
+ 	__system.in__ _input stream_ and __system.out__ , __system.err__ ( _output stream_) . \
  __System.in__ is by default associated with *keyboard* while __System.out__ and __System.err__ are associated with *monitor*.
 
 
@@ -2991,6 +2992,45 @@ an Integer value *equivalent* to __ASCII__ of readed character. We can read from
 7. File is a class and can be used to create a file or a directory.
 
 
+---
+
+```java
+import java.io.*;
+
+public class FileOperations
+{
+  public static void main(String[] args) throws IOException {
+  
+    File f=new File("ui.txt");
+    if (f.exists())
+    {
+      System.out.println("The file is there");
+    }
+    else
+    {
+
+      System.out.println("There is nothing as such");
+      System.out.println(f.createNewFile());
+      System.out.println("Now is is created");
+    }
+  }
+}
+
+ First time
+
+There is nothing as such
+true
+Now is is created
+
+
+ Second time 
+The file is there
+
+
+```
+
+---
+
 ```java
 import java.io.*;
 
@@ -3010,17 +3050,22 @@ class S
 
 ---
 
+
+
+
  :joy:  __Before__
 
-//  Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture
+```java
 
-// 09/27/2019  07:46 PM    <DIR>          .
-// 09/27/2019  07:46 PM    <DIR>          ..
-// 09/27/2019  01:44 PM               186 A.java
-// 09/27/2019  07:42 PM            23,951 README.md
-// 09/27/2019  07:46 PM               249 S.java
-//                3 File(s)         24,386 bytes
-//                2 Dir(s)  67,851,816,960 bytes free
+  Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture
+
+09/27/2019  07:46 PM    <DIR>          .
+09/27/2019  07:46 PM    <DIR>          ..
+09/27/2019  01:44 PM               186 A.java
+09/27/2019  07:42 PM            23,951 README.md
+09/27/2019  07:46 PM               249 S.java
+               3 File(s)         24,386 bytes
+               2 Dir(s)  67,851,816,960 bytes free
 
 
 :imp: 	__after__
@@ -3038,6 +3083,9 @@ Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture
                2 Dir(s)  67,851,816,960 bytes free
 
 D:\GEU\Semester_fifth\core-java-concepts\lecture>
+
+```
+
 
 ---
 
@@ -3065,7 +3113,7 @@ class S
 
 Before :-1:
 
-
+```java
  Volume Serial Number is 387F-AED0
 
  Directory of D:\GEU\Semester_fifth\core-java-concepts\lecture
@@ -3103,6 +3151,8 @@ true
                5 File(s)         26,588 bytes
                3 Dir(s)  67,851,812,864 bytes free
 
+```
+
 
 ---
 
@@ -3132,6 +3182,8 @@ class S
 
 	}
 }
+
+
 
 
 D:\GEU\Semester_fifth\core-java-concepts\lecture>dir
@@ -3602,7 +3654,71 @@ D:\Genuine
 
 
 
+__Example C__
 
+```java
+import java.io.*;
+
+public class FileOperations
+{
+  public static void main(String[] args) throws IOException {
+  
+    File f=new File("D:\\Post Graduation\\Java\\lecture\\");
+    if (f.exists())
+    {
+      System.out.println("The file is there");
+    }
+    else
+    {
+
+      System.out.println("There is nothing as such");
+      System.out.println(f.createNewFile());
+      System.out.println("Now is is created");
+    }
+
+
+    System.out.println("Checking if it is directory :"+f.isDirectory());
+    System.out.println("Checking if it is file ...  :"+f.isFile());
+    System.out.println(f.getAbsolutePath());
+
+
+        String names[]=null;
+
+        if (f.isDirectory())
+        {      
+              names=f.list();         
+
+        for (String s : names) {
+          System.out.print(s);
+        }
+        }
+
+
+
+        File directories[]=null;
+
+        if (f.isDirectory())
+        {      
+              directories=f.listFiles();   
+
+
+        for (File directory : directories) {
+          System.out.print(directory);
+        }
+        }
+
+
+
+
+
+
+  }
+}
+
+
+
+
+```
 
 
 
