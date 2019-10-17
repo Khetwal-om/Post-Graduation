@@ -1,0 +1,431 @@
+1. Frequency.java
+
+import java.util.*;
+public class Frequency
+{
+	public static void main(String[] args) {
+		String s="11111000";
+
+
+		int choice=1;
+		int zero=0;
+		int one=0;
+		int two=0;
+		int three=0;
+		int four=0;
+		int five=0;
+		int six=0;
+		int seven=0;
+		int eight=0;
+		int nine=0;
+
+		int element=0;
+
+
+
+
+        	for(int i=0;i<s.length();i++)
+		  {
+			String mediate=""+s.charAt(i);
+			element=Integer.parseInt(mediate);
+
+
+
+		switch(element)
+		{
+
+			case 0:
+			  zero+=1;
+			  break;
+			  
+			case 1:
+			  one+=1;
+			  break;
+
+			case 2:
+			  two+=1;
+			  break;
+
+
+			case 3:
+			  three+=1;
+			  break;
+
+
+			case 4:
+			  four+=1;
+			  break;
+
+
+			case 5:
+			  five+=1;
+			  break;
+
+
+
+			case 6:
+			  six+=1;
+			  break;
+
+
+			case 7:
+			  seven+=1;
+			  break;
+
+
+			case 8:
+			  eight+=1;
+			  break;
+
+
+			case 9:
+			  nine+=1;
+			  break;
+		}
+
+		  }
+
+
+	System.out.println("*********************");
+	System.out.println(zero);
+	System.out.println(one);
+	System.out.println(three);
+	System.out.println(four);
+	System.out.println(five);
+	System.out.println(six);
+	System.out.println(seven);
+	System.out.println(eight);
+	System.out.println(nine);
+	System.out.println("*********************");
+
+
+	}
+}
+
+
+
+
+2. Implementation stack
+
+import java.util.*;
+public class ImplementStack
+{
+	public static void main(String[] args) {
+		
+		Vector stack=new Vector();
+		int choice=1;
+		Scanner input=new Scanner(System.in);
+		while(choice!=0)
+		{
+
+			System.out.println("Enter your choice");
+			System.out.println("1 *****  push");
+			System.out.println("2 *****  pop");
+			System.out.println("3 *****  display");
+			System.out.println("0 *****  exit");
+			
+			choice=input.nextInt();
+			if(choice==1)
+			{
+				Push(stack);
+			}
+			if(choice==3)
+			{
+				Display(stack);
+			}
+			if(choice==2)
+			{
+				if(stack.size()==0)
+				{
+					System.out.println("There is no element to pop");
+
+				}
+				else
+				{
+				int index=stack.size()-1;
+				Pop(stack,index);
+				
+				}
+			}
+
+		}
+
+
+	}
+
+		public  static void Push(Vector stack)
+		{
+			Scanner input=new Scanner(System.in);
+			
+			System.out.println("Enter the element to add");
+			int element=input.nextInt();
+			stack.add(element);
+		}
+
+
+		public  static void Display(Vector stack)
+		{
+			System.out.println("*********************************");
+			System.out.println(stack);
+			System.out.println("*********************************");
+		}
+
+
+
+		public  static void Pop(Vector stack,int last)
+		{
+			stack.remove(last);
+		}
+
+}
+
+3. Again checking  frequency
+
+import java.util.*;
+public class Frequent
+{
+	public static void main(String[] args) {
+		String s="1111100098765432";
+
+
+		int choice=1;
+		int zero=0;
+		int one=0;
+		int two=0;
+		int three=0;
+		int four=0;
+		int five=0;
+		int six=0;
+		int seven=0;
+		int eight=0;
+		int nine=0;
+
+
+		char element;
+
+
+        	for(int i=0;i<s.length();i++)
+	  {
+			element=s.charAt(i);
+		
+
+		switch(element)
+		{
+
+			case '0':
+			  zero+=1;
+			  break;
+			  
+			case '1':
+			  one+=1;
+			  break;
+
+			case '2':
+			  two+=1;
+			  break;
+
+
+			case '3':
+			  three+=1;
+			  break;
+
+
+			case '4':
+			  four+=1;
+			  break;
+
+
+			case '5':
+			  five+=1;
+			  break;
+
+
+
+			case '6':
+			  six+=1;
+			  break;
+
+
+			case '7':
+			  seven+=1;
+			  break;
+
+
+			case '8':
+			  eight+=1;
+			  break;
+
+
+			case '9':
+			  nine+=1;
+			  break;
+		}
+
+		  }
+
+
+	System.out.println("*********************");
+	System.out.println(zero);
+	System.out.println(one);
+	System.out.println(three);
+	System.out.println(four);
+	System.out.println(five);
+	System.out.println(six);
+	System.out.println(seven);
+	System.out.println(eight);
+	System.out.println(nine);
+	System.out.println("*********************");
+
+
+	}
+}
+
+
+
+
+4. Saving object state to a file 
+
+import java.io.*;
+public class SaveObject
+{
+	public static void main(String[] args) {
+		
+		FileOutputStream fos=new FileOutputStream("koala.txt");
+		ObjectOutputStream oos=new ObjectOutputStream(fos);
+		B b=new B(32);
+		b.writeObject(b);
+		fos.close();
+		oos.close();
+
+
+
+		FileInputStream fin=new FileInputStream("koala.txt");
+		ObjectInputStream ois=new ObjectInputStream(fin);
+		B bob=null;
+		bob=(B)ois.readObject();
+
+		System.out.println("**********************");
+		System.out.println(b.victory);		
+		System.out.println("**********************");
+
+		fin.close();
+		ois.close();
+
+
+	}
+}
+
+
+
+class B implements Serializable
+{
+	int victory;
+	B(int i)
+	{
+		victory=i;
+	}
+}
+
+
+
+6. Again frequency but using String 
+
+
+import java.util.*;
+public class FrequencyString
+{
+	public static void main(String[] args) {
+		String s="111110077777777777772348905789307289375823705834708957890208098765432";
+
+
+		int choice=1;
+		int zero=0;
+		int one=0;
+		int two=0;
+		int three=0;
+		int four=0;
+		int five=0;
+		int six=0;
+		int seven=0;
+		int eight=0;
+		int nine=0;
+
+
+		String element;
+
+
+        	for(int i=0;i<s.length();i++)
+	  {
+			element=""+s.charAt(i);
+		
+
+		switch(element)
+		{
+
+			case "0":
+			  zero+=1;
+			  break;
+			  
+			case "1":
+			  one+=1;
+			  break;
+
+			case "2":
+			  two+=1;
+			  break;
+
+
+			case "3":
+			  three+=1;
+			  break;
+
+
+			case "4":
+			  four+=1;
+			  break;
+
+
+			case "5":
+			  five+=1;
+			  break;
+
+
+
+			case "6":
+			  six+=1;
+			  break;
+
+
+			case "7":
+			  seven+=1;
+			  break;
+
+
+			case "8":
+			  eight+=1;
+			  break;
+
+
+			case "9":
+			  nine+=1;
+			  break;
+		}
+
+		  }
+
+
+	System.out.println("*********************");
+	System.out.println(zero);
+	System.out.println(one);
+	System.out.println(three);
+	System.out.println(four);
+	System.out.println(five);
+	System.out.println(six);
+	System.out.println(seven);
+	System.out.println(eight);
+	System.out.println(nine);
+	System.out.println("*********************");
+
+
+	}
+}
