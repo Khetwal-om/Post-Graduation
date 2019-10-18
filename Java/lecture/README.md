@@ -5639,3 +5639,242 @@ class C extends Thread
 
 
 ---
+
+
+
+# OCT 18
+
+---
+
+1. We can process inter thread communication by the help of *wait* and *notify*.
+
+2. Applets are programs executed by the help of another program like AppletViewer( a tool provided by
+JDK ) or in a java enabled web browser like Mozilla.
+  * Applets are used to develop *GUI* applications.
+
+> Execution of an applet starts with its lifecycle so there is no need of **main** method in it. \
+We can create an Applet class by extending __Applet__ class that is part of *Applet* package.
+
+```java
+import java.applet.Applet;
+
+```
+
+3. An *applet* is a panel window on which we can draw some graphical object like circle,rectangle.
+4. We can place some string on panel window also different awt controls can be set on panel window like button,label,textfield,checkBox,menubar.
+5. Execution of an applet follow a lifecycle.
+
+```
+init()  ---> start() ---pain()
+               |
+             stop()  -->destroy()
+```
+
+6. The *init()* method is used to perform some vital task by an applet like initialization of things it
+is called only once.
+
+
+
+7. Applet class can be compiled as usual.
+
+8.
+```java
+ <applet code="nameofclass" width="" height=""></applet>
+
+```
+
+9. The super class of Applet is Panel.
+
+> Component  ->  Container -> Panel -> Applet
+
+10. 
+
+```java
+import java.applet.Applet;
+
+public class MyApplet extends Applet
+{
+  
+
+  String s="Vue";
+  int counter=0;
+
+  public void init()
+  {
+    System.out.println("Initialization");
+  }
+  public void start()
+  {
+    s=s+ counter++;
+    System.out.println(s+"within start");
+  }
+  public void stop()
+  {
+    s=s+ counter++;
+    System.out.println(s+"within stop");
+  }
+  public void Destroy()
+  {
+    System.out.println("Destruction");
+  }
+
+}
+```
+
+
+5. We can draw some graphical object or a string on a panel window by the help of paint method.
+Paint method is called via *start* method and can be overridden.
+6. Graphics class is part of awt package and memory to this object is allocated internally using 
+*getGraphics()* method.
+
+
+```java
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class MyApplet extends Applet
+{
+  
+  Graphics g;
+
+  public void init()
+  {
+    g=getGraphics();
+
+
+    System.out.println(g);
+  }
+
+
+
+}
+
+sun.java2d.SunGraphics2D[font=java.awt.Font[family=Dialog,name=Dialog,style=plain,size=12],
+color=java.awt.SystemColor[i=9]]
+```
+
+
+
+7. Use **paint()** method to display various shapes.
+
+```java
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class MyApplet extends Applet
+{
+  
+  
+
+  public void paint(Graphics g)
+  {
+    g=getGraphics();
+
+    g.drawString("Hola",50,50);
+  }
+
+
+
+}
+```
+
+
+
+8. *setBackground()* , *setForeground()* takes Color.colorname.
+
+These methods take argument of type color. Color is a class we can use its static perdefined object
+like Color.red, Color.blue or just simply create a new Color object by placing rgb() values.
+
+```java
+Color teal=new Color(0,128,128);
+
+```
+
+
+
+```java
+
+import java.applet.Applet;
+import java.awt.Graphics;
+import java.awt.*;
+
+public class MyApplet extends Applet
+{
+  
+  
+
+  public void paint(Graphics g)
+  {
+    g=getGraphics();
+    Color teal=new Color(0,128,128);
+    g.drawString("Hola",50,50);
+    setBackground(teal);
+    setForeground(Color.red);
+    // setColor(Color.white);
+    g.drawString("jskfd",100,100);
+    g.setColor(Color.yellow);
+  }
+
+
+
+}
+
+
+```
+
+
+6. **Draw** some graphical objects like line various shapes.
+
+```java
+import java.applet.Applet;
+import java.awt.Graphics;
+import java.awt.*;
+
+public class MyApplet extends Applet
+{
+  
+  
+
+  public void paint(Graphics g)
+  {
+    g=getGraphics();
+    g.drawRect(100,100,100,100);
+    g.drawOval(100,100,100,100);
+    g.drawOval(80,80,141,141);
+    setBackground(Color.red);
+  }
+
+
+
+}
+
+```
+
+
+7. Adding Button ...
+
+```java
+import java.applet.Applet;
+import java.awt.Graphics;
+import java.awt.*;
+
+public class MyApplet extends Applet
+{
+  
+ Button b;
+ public void init()
+ {
+  b=new Button("add");
+  add(b);
+ }
+
+
+
+}
+
+```
+
+
+---
+
+
