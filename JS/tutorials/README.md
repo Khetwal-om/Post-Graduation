@@ -18,7 +18,7 @@ __Script is simple weakly typed programming__
 ### Cons
 
 1. Because of code executes on the users computer,in some cases it can be exploited
-for malicious purposes. (Securit issues).
+for malicious purposes. (Security issues).
 
 
 * Types
@@ -30,7 +30,7 @@ jquery\
 angular\
 ember
 
-2. Server side scripts : The script whichis running within the web server .
+2. Server side scripts : The script which is running within the web server .
 
 > asp IIS(internet information services)\
 jsm tomcat/sun java system web server\
@@ -42,7 +42,7 @@ w3c jigsaw
 * Difference between scripting | programming languages
 
 1. interpreted based.
-2. implicit declaration of data type.
+2. implicit declaration of data type. *dynamic* i.e **Dynamically typed language**
 3. limited support for application development.
 4. limited support for graphics design.
 5. easily integrated with other tech.
@@ -326,3 +326,277 @@ element of a normal HTML page. The content inside the <noscript></noscript> will
 ```
 
 ---
+
+
+
+# Lecture 8  Conditional compilation
+
+
+1. If else
+
+```js
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Conditional Compilation</title>
+	<script type="text/javascript">
+		var x=prompt("Enter the number ","5"); //default number is 5
+
+		if(x>100)
+		{
+			alert("user entered"+x);
+		}
+		else{
+		 document.write("user entered"+x);
+		}
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+
+2. Switch
+
+> prompt deals with string.
+
+```js
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Conditional Compilation</title>
+	<script type="text/javascript">
+		var choice=prompt("Enter the number "); //default number is 5
+		document.write(typeof(choice));
+		var answer=choice*10;
+		document.write(typeof(answer));
+		switch(choice)
+		{
+			case '1':
+			document.write("Case 1");
+			break;
+
+			case '2':
+			document.write("Case 2");
+			break;
+
+
+			case '3':
+			document.write("Case 3");
+			break;
+
+			default:
+			document.write("Good grief we have to use only 10 pages");
+
+
+		}
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+```
+
+---
+
+
+stringnumberCase 3
+
+
+---
+
+
+# Lecture 9 loops
+
+---
+
+1. The for loop
+
+```js
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script>
+			for(i=1;i<=6;i++)
+			{
+				document.write("<h"+i+">"+"hola"+"</h>");
+			}
+ 
+	</script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+
+2. Do while
+
+```js
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<script>
+			
+			i=1;
+		do
+		{
+			document.write("The number is"+i);
+			document.write("<hr>");
+			i++;
+		}
+
+		while(i<=10)document.write("within while updation"+"<br>");
+		
+ 
+	</script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+---
+
+
+
+# Lecture  10 Function
+
+
+```js
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<script type="text/javascript">
+			
+			function Teal() {			
+
+			    document.bgColor="teal";
+
+			}
+			function Red() {			
+
+			    document.bgColor="Red";
+			}
+
+
+			function Orange() {			
+
+			    document.bgColor="Orange";
+			}
+
+
+	</script>
+</head>
+<body>
+
+<BUTTON onClick="Teal()">Teal</BUTTON>
+<BUTTON onClick="Red()">Red</BUTTON>
+<BUTTON onClick="Orange()">Orange</BUTTON>
+
+
+
+</body>
+</html>
+
+```
+
+
+# Lecture 11 Events in JS
+
+
+
+1. *innerHTML* simply removes everything that particular id displays.
+This is for the container.
+
+
+
+
+```js
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<script>
+			
+			function Sms() {
+				document.getElementById('one').innerHTML=Date();
+			}
+
+
+			function Two() {
+				document.getElementById("two").innerHTML=Date();
+			}
+
+	</script>
+</head>
+<body>
+
+ <h1 id='one'>Inner HTML</h1>
+
+ <p id="two">adipisicing elit, sed do eiusmod
+ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+ </p>
+ <BUTTON onClick="Sms()">Click</BUTTON>
+ <BUTTON onClick="Two()">Click</BUTTON>
+
+</body>
+</html>
+
+
+
+```
+
+
+2. Ondblclick() 
+
+```html
+<BUTTON onClick="Sms()">Click</BUTTON>
+<BUTTON ondblclick="Two()">Click</BUTTON>
+```
+
+
+3. onload():
+
+
+```javascript
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<script>
+			
+			function PageLoad() {
+				document.bgColor="teal";
+			}
+
+	</script>
+</head>
+<body onload="PageLoad()">
+
+
+<h1>Homie</h1>
+</body>
+</html>
+```
+
+
+4. 
