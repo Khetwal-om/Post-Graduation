@@ -1,58 +1,28 @@
-public class A{
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
 
-	public static void main(String[] args)  throws InterruptedException{
-	
-		B b=new B();
-		C c=new C();
-
-		b.start();
+/* <applet code="A" width=500 height=500>
+</applet>*/
 
 
-		c.start();
+public class A extends Applet implements ItemListener{
+
+	List c;
+
+	public void init(){
+		c=new List(2,true);
+		c.add("First");
+		c.add("Second");
+		c.add("Third");
+		c.addItemListener(this);
+		add(c);
 
 	}
 
-}
+	public void itemStateChanged(ItemEvent e){
+		System.out.println(e);
+		System.out.println(e.getItem());
 
-
-class B extends Thread
-{
-	public  void run()
-	{
-		for (int i=0; i<7 ;++i ) {
-			try{
-				sleep(100);
-
-			}
-			catch (Exception e)
-			{
-				System.out.println(e);
-			}
-
-				System.out.println('b');
-		}
 	}
 }
-
-
-class C extends Thread
-{
-	public  void run()
-	{
-		for (int i=0; i<7 ;++i ) {
-			try{
-				sleep(30);
-			}
-			catch (Exception e)
-			{
-				System.out.println(e);
-			}
-
-
-			
-				System.out.println('c');
-		}
-	}
-}
-
-

@@ -599,4 +599,18 @@ This is for the container.
 ```
 
 
-4. 
+
+
+
+# 15  Errors in JS
+
+1. Syntax
+2. Runtime
+3. Logical
+
+16211281
+pagajjmpwjackey
+
+16211047
+kaboom
+
