@@ -1,0 +1,27 @@
+<html> 
+ <head> 
+  <title>Deepak Joshi Roll No: 14</title> 
+   
+ </head> 
+ <body> 
+  <script> 
+   var x=prompt("Enter string"); 
+   var vowel="aeiou"; 
+   var vow=0,cons=0; 
+   var arr=x.split(" "); 
+   document.write("The String is: "+x+"<br>"); 
+   document.write("Total no of words: "+arr.length+"<br>"); 
+   document.write("Total characters: "+x.length+"<br>"); 
+   for(var i=0;i<x.length;i++) 
+   { 
+    var ch=x.toLowerCase().charAt(i); 
+    if(vowel.includes(ch+"")) 
+     vow++; 
+    else if(ch>='a'&&ch<='z') 
+     cons++; 
+   } 
+   document.write("Total vowels: "+vow+"<br>"); 
+   document.write("Total consonants: "+cons); 
+  </script> 
+ </body> 
+</html> 

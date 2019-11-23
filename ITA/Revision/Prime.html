@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Khetwal om 34|B	</title>
+
+	<!-- <script type="text/javascript">
+		function isPrime() {
+			var range=250;
+			var j=2;
+			for (var i = 2; i < 250; i++) {
+					if (i%j==0){
+                		document.write="hi";
+                		// console.log(i);
+                		j++;
+
+					}
+					else{
+						document.write="hi";
+						console.log(i);
+						j++;
+					}
+				}
+		}
+	</script> -->
+
+
+
+
+ 	<script type="text/javascript">
+ 		function isPrime(argument) {
+ 			var number=119;
+ 			var flag=0;
+ 			for (var i = 2; i < number; i++) {
+ 				if(number%i==0){
+ 					flag=1;
+ 				}
+ 			}
+ 			if(flag==0){
+ 				console.log("Prime");
+ 			}
+ 			else{
+ 				console.log("Not a prime number");
+ 			}
+ 		}
+
+
+
+ 			function isPrimeInRange(){
+ 				var range=250;
+ 				var flag=0;
+ 				for(var k=2;k<250;k++){
+ 					for(var j=2;j<k/2;j++){
+ 						if(k%j==0){
+ 							flag=1;
+ 							break;
+ 						}
+ 					}
+ 					if(flag==0){
+ 						document.write(k);
+ 						console.log(k);
+ 					}
+ 					flag=0;
+ 				}
+ 			}
+ 	</script>
+</head>
+<body onload="isPrimeInRange()">
+	<h1>Prime numbers less than 250</h1>
+</body>
+</html>
