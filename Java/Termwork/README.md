@@ -300,3 +300,98 @@ class Four{
 	}
 }
 ```
+
+
+5. Check the second command line argument is reverse of the first one . Print "yes" otherwise "no"
+
+```java
+class Five{
+	public static void main(String[] args) {
+
+
+		System.out.println(args[0]);
+		System.out.println(args[1]);
+
+		StringBuffer sbr=new StringBuffer(args[1]);
+		sbr.reverse();
+		String second=sbr.toString();
+		
+
+		if(args[0].equals(second))
+			{
+				System.out.println("Yes");
+			}
+		else
+			{
+				System.out.println("No");
+			}
+
+
+
+	}
+}
+```
+
+
+**Approach||**  
+
+
+```java
+class Five{
+	public static void main(String[] args) {
+		
+		String first=args[0];
+		String second=args[1];
+
+		StringBuffer sbr=new StringBuffer(second);
+		sbr.reverse();
+		String data=sbr.toString();
+		
+
+		if(first.equals(data))
+			{
+				System.out.println("Yes");
+			}
+		else
+			{
+				System.out.println("No");
+			}
+
+
+
+	}
+}
+
+``` 
+
+
+6. Create a substring from "12324456554" and resultant string should contain only
+even digits but only once.
+
+```java
+class Five{
+	public static void main(String[] args) {
+		
+		String first=args[0];
+		String second=args[1];
+
+		StringBuffer sbr=new StringBuffer(second);
+		sbr.reverse();
+		String data=sbr.toString();
+		
+
+		if(first.equals(data))
+			{
+				System.out.println("Yes");
+			}
+		else
+			{
+				System.out.println("No");
+			}
+
+
+
+	}
+}
+
+```
