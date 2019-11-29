@@ -156,6 +156,33 @@ class B
 
 ---
 
+**Another example of variable length arguments using String**
+
+```java
+class Test{
+	public static void main(String[] args) {
+
+		B b=new B();
+		b.params(11,args);
+		
+	}
+}
+
+
+class B{
+	public void params(int x,String ...array){
+		System.out.println(" The number of elements"+array.length);
+		for(String element:array){
+			System.out.print(element+"  ");
+		}
+	}
+}
+
+
+```
+
+
+
 ## An object can be final but it's underlying variables can still be changed.
 
 
@@ -315,16 +342,50 @@ class Args
 
 ```
 
-7. Final obj can't be assigned new memory location
+---
+
+**Storing command line arguments in String array**
 
 ```java
-
-class Args
+class Test
 {
   public static void main(final String ...args) {
 
-    final B obj=new B();
+      for(String element:nova){
+      	System.out.println(element);
+      }
+
+
+      String another[]=args;
+      System.out.println("THe number of elements"+another.length);
+      for(String data:another){
+      	System.out.println(data);
+      }
+
+  }
+}
+```
+
+
+
+
+---
+
+
+7. Final obj can't be assigned new memory location
+
+**This is when the object is not final**
+
+```java
+
+class Test
+{
+  public static void main(final String ...args) {
+
+    B obj=new B();
+    System.out.println("Earlier :  "+obj);
     obj=new B();
+    System.out.println("Later   |  "+obj);
 
 
   }
@@ -334,6 +395,40 @@ class B
 {
   final int i=3;
 }
+
+
+Earlier :  B@17ed40e0
+Later   |  B@50675690
+
+```
+
+
+
+**The the obj is declared final **
+
+
+```java
+
+
+class Test
+{
+  public static void main(final String ...args) {
+
+    final B obj=new B();
+    System.out.println("Earlier :  "+obj);
+    obj=new B();
+    System.out.println("Later   |  "+obj);
+
+
+  }
+}
+
+class B
+{
+  final int i=3;
+}
+
+cannot assign a value to final variable obj
 ```
 
 
@@ -346,11 +441,7 @@ class Args
   public static void main(final String ...args) {
 
     B obj=new B();
-
-
     obj.a=new int[4];
-
-
   }
 }
 
@@ -359,6 +450,37 @@ class B
   final int a[]={1,2,3,4,5,6,8};
 }
 ```
+
+**If we remove final keyword**
+
+```java
+
+class Test
+{
+  public static void main(final String ...args) {
+
+    B obj=new B();
+
+    System.out.print("Before ->");
+    System.out.println(obj.array);
+    obj.array=new int[7];
+    System.out.print("After  ->");
+    System.out.println(obj.array);
+  }
+}
+
+class B
+{
+   int array[]={3,32,35,45};
+}
+
+
+Before ->[I@6bc168e5
+After  ->[I@7b3300e5
+
+```
+
+
 
 
 9. Even though the array is declared final we can still update it's values
@@ -400,10 +522,10 @@ class B
 
 
 
-
-// 1   2   3   4   5   6   8   Before-------------------
-// After------------------------
-// 1   2   3   7   5   6   8
+Before **********************
+1   2   3   4   5   6   8   
+After------------------------
+ 1   2   3   7   5   6   8
 
 
 ```
