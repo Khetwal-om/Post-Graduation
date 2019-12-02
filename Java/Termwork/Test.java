@@ -1,27 +1,39 @@
+import java.util.*;
 
-class Test
+
+public class Test
 {
-  public static void main(String[] args) {
-    String s1="acc";
-    String s2="acc";
+	public static void main(String args[])
+	{
 
+		B obj=new B();
+		obj.add("a");
+		obj.add("b");
+		obj.add("c");
+		obj.add(9);
+		obj.display();
 
-    System.out.println("This is to verfiy that s1 and s2 points to the same memory location");
-    
-    System.out.println(System.identityHashCode(s1));
-    System.out.println(System.identityHashCode(s2));
-
-
-    System.out.println("When memory is assigned with the help of new keyword above concept get changed");
-
-    String s3=new String("fan");
-    String s4=new String("fan");
-
-
-
-    System.out.println(System.identityHashCode(s3));
-    System.out.println(System.identityHashCode(s4));
-  }
+	}
 }
 
 
+class B
+{
+	static int m=0;
+
+	Object o[]=new Object[10];
+
+	void add(Object i)
+	{
+		o[m++]=i;
+	}
+
+	void display()
+	{
+		// Since o is an array , we can iterate over it
+		for (int i=0;i<o.length;i++)
+		{
+			System.out.println(o[i]);
+		}
+	}
+}

@@ -446,3 +446,54 @@ class AgeException extends Exception{
 	}
 }
 ```
+
+
+
+---
+
+
+###Random 
+
+
+```java
+import java.util.*;
+import java.io.*;
+
+class Test{
+	public static void main(String[] args) {
+
+
+		HashSet h=new HashSet();
+		h.add(12);
+		h.add(45);
+		h.add("abcdefghijklmnopqrstuvwxyz");
+		// System.out.println(h);
+
+
+		Iterator iter=h.iterator();
+		while(iter.hasNext()){
+			 System.out.println(iter.next().getClass().getSimpleName()+"  ");
+		}
+
+		// for(int i=0;i<h.size();i++){
+		// 	System.out.println(h.get(i));
+		// }
+
+
+		Integer i=7;
+		Integer k=7;
+		System.out.println(System.identityHashCode(i));
+		System.out.println(System.identityHashCode(k));
+
+		String
+		Integer
+		Integer
+		736709391
+		736709391
+
+
+	}
+}
+```
+
+---
