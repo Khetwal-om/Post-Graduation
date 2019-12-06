@@ -5,7 +5,7 @@ class DaemonThread{
 	public static void main(String[] args) throws Exception {
 		for(int i=0;i<7;i++){
 			Thread.sleep(1200);
-			System.out.println("DaemonThread : "+i);
+			System.out.println("main thread : "+i);
 		}
 
 		B b=new B();
@@ -32,6 +32,75 @@ class B extends Thread{
 
 ```
 
+**The simplified one**
+
+```java
+class DaemonThread{
+	public static void main(String[] args) throws Exception {
+		for(int i=0;i<7;i++){
+			Thread.sleep(1200);
+			System.out.println("main thread: "+i);
+		}
+
+		B b=new B();
+		b.setDaemon(true); //Daemon thread
+		b.start();
+		System.out.println("Exiting from main");
+	}
+}
+
+class B extends Thread{
+	int i=0;
+	public void run(){
+		while(true){
+			try{
+				System.out.println("From B");
+				sleep(5000);
+				i++;
+				if(i==3){
+					break;
+				}
+
+			}
+			catch(Exception e){
+				System.out.println(e);
+			}
+		}
+	}
+}
+```
+
+**Output**
+
+```java
+DaemonThread : 0
+DaemonThread : 1
+DaemonThread : 2
+DaemonThread : 3
+DaemonThread : 4
+DaemonThread : 5
+DaemonThread : 6
+Exiting from main
+From B
+```
+
+
+**IF  setDaemon(true) is commented**
+
+```java
+DaemonThread : 0
+DaemonThread : 1
+DaemonThread : 2
+DaemonThread : 3
+DaemonThread : 4
+DaemonThread : 5
+DaemonThread : 6
+Exiting from main
+From B
+From B
+From B
+
+```
 
 
 2. Save  object state to a file
@@ -666,6 +735,7 @@ public class PopUp{
 // <applet code="PopUp" width=400 height=400 ></applet>
 
 ```
+<<<<<<< HEAD
 
 
 
@@ -754,3 +824,5 @@ class StaticImport{
 
 
 13. 
+=======
+>>>>>>> 87f10aaeb2b5c5764dfedf0d73b6c989ef794abe

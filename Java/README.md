@@ -3772,7 +3772,143 @@ BufferedReader  | FileStreamWriter
 ---
 
 
+# October 22
 
+---
+
+changing color on button press
+
+```java
+import java.awt.*;
+import java.applet.*;
+import java.awt.event.*;
+
+
+public class B extends Applet implements ActionListener
+{
+   Button show;
+   TextField t;
+   String name;
+
+
+   public void init()
+   {
+   	 show=new Button("show");
+       t=new TextField();
+   	 show.addActionListener(this);
+       add(show);
+       add(t);
+   }
+
+
+   public void actionPerformed(ActionEvent e)
+   {
+   	  if(e.getSource()==show)
+   		{
+
+            
+   		}
+   }
+}
+
+
+
+
+  ```
+  
+  2. Orange or another color
+  
+  ```java
+  
+  import java.awt.*;
+import java.applet.*;
+import java.awt.event.*;
+
+
+public class A extends Applet implements ActionListener
+{
+   Button a,b;
+   public void init()
+   {
+   	 a=new Button("Teal");
+   	 b=new Button("Orange");
+   	 a.addActionListener(this);
+   	 b.addActionListener(this);
+   	 add(a);
+   	 add(b);
+   }
+
+
+   public void actionPerformed(ActionEvent e)
+   {
+   	  if(e.getSource()==a)
+   		{
+   			setBackground(Color.red);
+   		}
+   	   if(e.getSource()==b)
+   	   {
+   	   	setBackground(Color.orange);
+   	   }
+   }
+}
+
+```
+
+
+
+
+
+3. drawing shapes
+
+
+```java
+import java.applet.*;
+import java.awt.event.*;
+import java.awt.*;
+public class Myevent extends Applet implements ActionListener{
+  String s="jaskd";
+  TextField t;
+  Button b;
+  // int first;
+  // int second;
+
+  public void init()
+  {
+  	t=new TextField();
+  	b=new Button("show");
+  	b.addActionListener(this);
+  	add(b);
+  	add(t);
+
+  }
+
+  public void actionPerformed(ActionEvent e)
+  {
+  	s=t.getText();
+  	repaint();
+  }
+
+  public void paint(Graphics g)
+  {
+  	g.drawString(s,100,100);
+  	g.drawRect(100,100,100,100);
+  	g.drawOval(100,100,100,100);
+  	g.drawOval(80,80,141,141);
+  }
+}
+
+
+ ```
+ 
+ 
+ 
+ #
+ ##
+ 
+ ###
+
+
+---
 
 # OCTOBER 22
 
@@ -4514,6 +4650,337 @@ public class A extends Applet implements ItemListener{
 ---
 
 
+
+:+1: 
+
+## November 19
+
+0.   Place MenuBar,Menu,MenuItem
+
+
+```java
+
+
+
+
+
+import java.awt.event.*;
+import java.awt.*;
+
+
+public class P{
+	public static void main(String[] args) {
+		L l=new L();
+		l.setVisible(true);
+		l.setSize(222,222);
+	}
+}
+
+
+
+class L extends Frame{
+	
+
+
+
+	MenuBar menubar;
+	Menu    menu;
+	MenuItem menuitem_a,menuitem_b;
+
+
+	L(){
+
+		menubar=new MenuBar();
+		menu=new Menu("File");
+		menuitem_a=new MenuItem("open");
+		menuitem_b=new MenuItem("edit");
+		menu.add(menuitem_a);
+		menu.addSeparator();
+		menu.add(menuitem_b);
+		menubar.add(menu);
+		setMenuBar(menubar);
+
+	}
+
+
+
+
+
+}
+
+
+/*  
+ <applet code="P" width=222 height=222>  </applet>
+ */
+
+ ```
+
+
+1.
+
+
+
+
+```java
+import java.awt.event.*;
+import java.awt.*;
+
+public class A {
+public static void main(String[] args) {
+	
+	C c=new C();
+	c.setVisible(true);
+	c.setSize(222,222);
+}
+}
+
+
+
+class C extends Frame  implements ActionListener{
+
+
+	public void actionPerformed(ActionEvent e){
+
+		d.setVisible(true);
+		d.setSize(229,333);
+	}
+
+
+	Dialog d;
+	Button b;
+	MenuBar mb;
+	Menu m; 
+	MenuItem m1,m2;
+	C(){
+		d=new Dialog(new Frame(),"Dialog...");
+		setLayout(new FlowLayout());
+
+		mb=new MenuBar();
+		m=new Menu("File");
+		m1=new MenuItem("Open");
+		m1.addActionListener(this);
+
+
+		m2=new MenuItem("Close");
+		m.add(m1);
+		m.addSeparator();
+		m.add(m2);
+		mb.add(m);
+		setMenuBar(mb);
+
+	}
+}
+```
+
+
+2. 
+
+
+
+```java
+import java.awt.event.*;
+import java.awt.*;
+import java.applet.*;
+
+public class K extends Applet{
+	TextField t;
+	Cursor c;
+	Font f;
+
+	public void init(){
+		t=new TextField(22);
+		c=new Cursor(Cursor.HAND_CURSOR);
+		f=new Font("helsinki",Font.BOLD,22);
+		t.setCursor(c);
+		t.setFont(f);
+		add(t);
+	}
+}
+
+
+
+
+
+
+/*   <applet code="K" width=222 height=222>  */
+```
+
+
+
+
+
+
+
+
+
+
+
+
+3. Image
+
+```java
+import java.awt.event.*;
+import java.awt.*;
+import java.applet.*;
+
+public class S extends Applet{
+
+	Image i;
+
+	public void paint(Graphics g){
+			
+
+			i=getImage(getDocumentBase(),"b.jpg");
+			g.drawImage(i,0,0,this);
+
+	}
+
+}
+
+
+
+
+
+
+/*  
+ <applet code="S" width=222 height=222>  </applet>
+ */
+```
+
+
+
+
+
+
+4. JFrame 
+
+
+```java
+
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+
+
+public class T extends JApplet {
+	JButton jb;
+	ImageIcon io;
+
+	public void init(){
+
+	
+		  JFrame j=new JFrame("sdkfj|)||");
+		  j.setVisible(true);
+		  j.setSize(222,222);
+
+		}
+
+}
+
+
+
+
+
+/*   <applet code="T" width=222 height=222>  </applet>*/
+
+
+```
+
+
+# Swings
+
+
+
+---
+
+
+
+1. As we are using **GUI** applications using awt controls  we can also do it using swings controls. Applications developed
+using swing controls are lightweighted controls.
+
+2. We can place image on a button.
+
+
+
+
+---
+
+
+
+
+
+
+
+
+
+# This ain't working
+
+
+```java
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+
+public class M{
+	public static void main(String[] args) {
+		Q q=new Q();
+		q.setVisible(true);
+		q.setSize(600,600);
+		q.setLayout(null);
+	}
+}
+
+
+class Q extends JFrame{
+
+	JButton jb;
+	JTextField username;
+	JTextField password;
+	JLabel label1;
+	JLabel label2;
+
+
+	Q() {
+
+		try{
+		username=new JTextField();
+		password=new JTextField();
+		jb=new JButton();
+		label1=new JLabel();
+		label1.setText("Enter the username");
+		label2=new JLabel();
+		label2.setText("Enter the password");
+
+		label1.setBounds(20,20,40,10);
+		label2.setBounds(20,20,80,100);
+		jb.setBounds(40,40,40,10);
+
+
+		  add(username);
+		  add(password);
+		//  add(jb);
+
+		}
+		catch (Exception e){
+
+		}
+	}
+
+}
+
+
+
+
+
+/*   <applet code="M" width=222 height=222>  </applet>*/
+
+
+
+```
 
 
 
