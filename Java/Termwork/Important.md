@@ -5,7 +5,7 @@ class DaemonThread{
 	public static void main(String[] args) throws Exception {
 		for(int i=0;i<7;i++){
 			Thread.sleep(1200);
-			System.out.println("DaemonThread : "+i);
+			System.out.println("main thread : "+i);
 		}
 
 		B b=new B();
@@ -39,7 +39,7 @@ class DaemonThread{
 	public static void main(String[] args) throws Exception {
 		for(int i=0;i<7;i++){
 			Thread.sleep(1200);
-			System.out.println("DaemonThread : "+i);
+			System.out.println("main thread: "+i);
 		}
 
 		B b=new B();
