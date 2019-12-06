@@ -9,6 +9,8 @@ class ServerA{
 		 ServerSocket serversocket=new ServerSocket(8080);
 		 Socket s=serversocket.accept();
 
+
+		 
 		 InputStream is=s.getInputStream();
 		 DataInputStream dis=new DataInputStream(is);
 		 String m=dis.readUTF();

@@ -18,7 +18,11 @@ class B extends Thread{
 		while(true){
 			try{
 				System.out.println("From B");
-				sleep(1500);
+				sleep(5000);
+				i++;
+				if(i==3){
+					break;
+				}
 			}
 			catch(Exception e){
 				System.out.println(e);

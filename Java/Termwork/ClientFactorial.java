@@ -13,7 +13,6 @@ class ClientFactorial{
 		dos.writeUTF(input.next());
 
 
-
 		InputStream is=socket.getInputStream();
 		DataInputStream dis=new DataInputStream(is);
 		System.out.println("The factorial is "+dis.readUTF());

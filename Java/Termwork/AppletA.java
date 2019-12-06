@@ -4,24 +4,8 @@ import java.applet.*;
 import java.awt.event.*;
 
 
-public class AppletA extends Applet implements ActionListener{
-	Button b;
+public class {
 
-	FlowLayout f;
-	
-	public void init(){
-		b=new Button();
-		f=new FlowLayout(FlowLayout.LEFT);
-		setLayout(f);
-		b.addActionListener(this);
-		add(b);
-		System.out.println(getLayout());
-	}
-
-	public void actionPerformed(ActionEvent e){
-		System.out.println();
-	}
-	
 }
 
 

@@ -404,8 +404,7 @@ Later   |  B@50675690
 
 
 
-**The the obj is declared final **
-
+**The the obj is declared final**
 
 ```java
 

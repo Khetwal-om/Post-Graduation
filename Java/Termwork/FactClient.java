@@ -7,6 +7,6 @@ class FactClient
 	Socket s=new Socket("localhost"8080);
 	OutputStream ou=s.getOutputStream();
 	DataOutputStream dot=new DataOutputStream(ou);
-	WriteUTF("hello client");
+	dot.WriteUTF("hello client");
 	dot.close(); 
 	}
