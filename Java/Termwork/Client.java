@@ -1,15 +1,11 @@
-import java.net.*;
-import java.io.*;
+import java.rmi.*;
 
 
+public class Client{
+	public static void main(String[] args)  throws Exception{
+		CreateInterface obj=(CreateInterface)Naming.lookup("ADD");
 
-class Client{
-	public static void main(String[] args) throws Exception {
-		 Socket socket=new Socket("localhost",8080);
-		 OutputStream os=socket.getOutputStream();
-		 DataOutputStream dos=new DataOutputStream(os);
-		 dos.writeUTF("Hello ...");
-		 dos.close();
-		 socket.close();
+		int n=obj.add(10,20);
+		System.out.println(n);
 	}
 }

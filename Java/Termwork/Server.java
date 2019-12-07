@@ -1,18 +1,9 @@
-import java.net.*;
-import java.io.*;
-
-
-
-class Server{
-	public static void main(String[] args) throws Exception{
-		ServerSocket serversocket=new ServerSocket(8080);
-		Socket socket=serversocket.accept();
-		
-		InputStream is=socket.getInputStream();
-		DataInputStream dis=new DataInputStream(is);
-		String data=dis.readUTF();
-		System.out.println(data);
-		dis.close();
-		socket.close();
-	}
+import java.rmi.*;
+public class Server{
+  public static void main(String[] args) throws Exception{
+  	   	
+  		ImplementInterfac obj=new ImplementInterfac();
+  	   	Naming.rebind("ADD",obj);
+  	   	System.out.println("Server ...");
+  }
 }

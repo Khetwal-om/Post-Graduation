@@ -1140,4 +1140,70 @@ class HashMapExample{
 
 
 
-20. 
+20. RMI
+
+
+
+
+1. 
+
+```java
+import java.rmi.*;
+
+public interface CreateInterface extends Remote{
+	public int add(int x,int y) throws Exception;
+}
+```
+
+
+2. 
+
+```java
+import java.rmi.server.*;
+
+public class ImplementInterfac extends UnicastRemoteObject implements CreateInterface{
+
+	public ImplementInterfac() throws Exception
+	{	
+		super();
+	}
+
+	public int add(int x,int y) {
+		return x+y;
+	}
+}
+```
+
+
+
+3. 
+```java
+import java.rmi.*;
+public class Server{
+  public static void main(String[] args) throws Exception{
+  	   	
+  		ImplementInterfac obj=new ImplementInterfac();
+  	   	Naming.rebind("ADD",obj);
+  	   	System.out.println("Server ...");
+  }
+}
+
+```
+
+
+
+4. 
+
+```java
+import java.rmi.*;
+
+
+public class Client{
+	public static void main(String[] args)  throws Exception{
+		CreateInterface obj=(CreateInterface)Naming.lookup("ADD");
+
+		int n=obj.add(10,20);
+		System.out.println(n);
+	}
+}
+```
