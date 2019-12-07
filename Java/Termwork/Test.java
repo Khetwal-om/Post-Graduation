@@ -1,39 +1,38 @@
-import java.util.*;
 
+class Student{
+		int marks;
+	public void setMarks(int marks){
+		this.marks=marks;
+	}
 
-public class Test
-{
-	public static void main(String args[])
-	{
-
-		B obj=new B();
-		obj.add("a");
-		obj.add("b");
-		obj.add("c");
-		obj.add(9);
-		obj.display();
-
+	public int getMarks(){
+		return this.marks;
 	}
 }
 
+interface Sports{
+	
+	public void sportsGrades(int grade);
+}
 
-class B
-{
-	static int m=0;
 
-	Object o[]=new Object[10];
-
-	void add(Object i)
-	{
-		o[m++]=i;
+class Test extends Student implements Sports{
+	 static int grade;
+	public void sportsGrades(int grade){
+		
+		System.out.println(grade);
 	}
 
-	void display()
-	{
-		// Since o is an array , we can iterate over it
-		for (int i=0;i<o.length;i++)
-		{
-			System.out.println(o[i]);
-		}
+	public void display(){
+		System.out.println(getMarks());
+		sportsGrades(10);
+	}
+
+
+	public static void main(String[] args) {
+			Test obj=new Test();
+			obj.setMarks(100);
+			obj.display();
+
 	}
 }

@@ -826,3 +826,318 @@ class StaticImport{
 13. 
 =======
 >>>>>>> 87f10aaeb2b5c5764dfedf0d73b6c989ef794abe
+
+
+
+
+14. Saving to a file
+
+```java
+
+// Java program to demonstrate redirection in System.out.println() 
+import java.io.*; 
+
+public class SystemFact 
+{ 
+	public static void main(String arr[]) throws FileNotFoundException 
+	{ 
+		// Creating a File object that represents the disk file. 
+		PrintStream o = new PrintStream(new File("A.txt")); 
+
+		// Store current System.out before assigning a new value 
+		PrintStream console = System.out; 
+
+		// Assign o to output stream 
+		System.setOut(o); 
+		System.out.println("This will be written to the text file"); 
+
+		// Use stored value for output stream 
+		System.setOut(console); 
+		System.out.println("This will be written on the console!"); 
+	} 
+} 
+
+
+```
+
+
+
+
+
+
+
+
+15. 
+
+```java
+import java.io.*;
+
+
+
+class FileOne{
+	public static void main(String[] args) throws IOException{
+			
+			FileReader fr=new FileReader("A.md");
+
+			int k=0;
+
+			while((k=fr.read())!=-1){
+				System.out.println((char)k);
+			}
+
+			k=0;
+
+			FileWriter fw=new FileWriter("A.md",true);
+			fw.write("11122233300000oooooooooooopppppppppppqqqqqqqwwwwwww");
+			fw.close();
+
+			while((k=fr.read())!=-1){
+				System.out.print((char)k);
+			}
+
+
+	}
+}
+```
+
+16. Try with resource
+
+```java
+
+import java.io.*;
+public class B {
+	public static void main(String[] args) {
+		try(
+			C c=new C();
+			)
+			{
+
+			}
+
+	}
+}
+
+class C implements Closeable{
+	public void close(){
+		System.out.println("Closed");
+	}
+}
+
+```
+
+
+
+18. Part B
+
+
+
+
+---
+
+# RMI
+
+
+1. RemoteInterface
+
+```java
+import java.rmi.Remote;
+
+
+public interface RemoteInterface extends Remote{
+	public int add(int a,int b) throws Exception;
+}
+```
+
+
+
+2. ImplementInterface
+
+```java
+
+import java.rmi.server.*;
+
+public class ImplementInterface extends UnicastRemoteObject implements RemoteInterface{
+
+	public ImplementInterface() throws Exception{
+		super();
+	}
+
+	public int add(int x,int y){
+		return x+y;
+	}
+}
+
+
+```
+
+3. RMIClient
+
+
+```java
+import java.rmi.*;
+public class RMIClient{
+	public static void main(String[] args) throws Exception {
+		RemoteInterface obj=(RemoteInterface)Naming.lookup("ADD");
+		int n=obj.add(1,1);
+		System.out.println(n);
+	}
+}
+```
+
+
+
+4. RMIServer
+
+```java
+
+import java.rmi.*;
+
+
+public class RMIServer{
+	public static void main(String[] args) throws Exception {
+		ImplementInterface =new ImplementInterface();
+
+		rebind("ADD",obj);
+		System.out.println("Server Started");
+	}
+}
+
+```
+
+
+---
+
+
+
+
+
+
+
+
+
+
+16. Grabage collection
+
+  * Inorder to use memory from heap JVM use its default garbage collector that works
+  automatically for this purpose  *System* class defines a method **gc()** which is 
+  invoked by JVM automatic garbage collector based on certain algorithms to call
+  finalize() method.
+
+  finalize() method is is responsible to free memory .
+
+
+
+
+
+
+
+
+
+```java
+
+class GarbageCollection{
+	public static void main(String[] args) {
+		B b=new B();
+		b=null;
+
+
+		System.gc();
+	}
+}
+
+
+class B{
+	public void finalize(){
+		System.out.println("finalize method called");
+	}
+}
+
+``` 
+
+
+
+**Another one**
+
+
+```java
+class GarbageCollection{
+	public static void main(String[] args) {
+		B b=new B();
+		b=new B();
+
+		System.gc();
+	}
+}
+
+
+class B{
+	public void finalize(){
+		System.out.println("finalize method called");
+	}
+}
+```
+
+
+
+
+
+
+
+18. HashSet
+
+```java
+import java.util.*;
+
+
+class HashMapExample{
+	public static void main(String[] args) {
+		HashSet h=new HashSet();
+
+		h.add("i");
+		h.add("hello");
+		Iterator ia=h.iterator();
+		while(ia.hasNext()){
+			System.out.println(ia.next());
+		}
+		// System.out.println(h.get(0));
+	}
+}
+```
+
+
+
+19. HashSet
+
+```java 
+import java.util.*;
+
+
+class HashMapExample{
+	public static void main(String[] args) {
+		HashSet h=new HashSet();
+
+		h.add("i");
+		h.add("hello");
+		Iterator ia=h.iterator();
+		while(ia.hasNext()){
+			System.out.println(ia.next());
+		}
+		// System.out.println(h.get(0));
+
+		for (Object o : h) {
+			System.out.println(o.getClass().getSimpleName());
+
+			System.out.println(o instanceof String);
+			if(o instanceof String){
+			String string=(String)o;
+			System.out.println(string.toUpperCase());
+			}
+		}
+	}
+}	
+
+```
+
+
+
+20. 
