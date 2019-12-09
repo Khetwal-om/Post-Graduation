@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		var Things=[1,2,3,4,5,6,11];
+		for (var i = Things.length - 1; i >= 0; i--) {
+			console.log(Things[i]);
+		}
+	
+
+		var Elements=[1,2,3,4,5,6,"that ain't working properly",980,"UIIII",1231223];
+		for(var i=0;i<Elements.length;i++){
+			console.log(Elements[i]);
+		}
+
+
+		for  (var element in Elements){
+			console.log(element);
+			document.write(Elements[element]);
+		}
+
+		document.write("<hr>");
+
+
+
+		var values=new Array("a","b",1,2,3);
+		values.push(123,'a','B',"I have pushed this one ");
+		for(var value in values){
+			document.write(value);
+			console.log(values[value]);
+		}
+		document.write("<hr>");
+		for(let element of values){
+			console.log(element);
+			document.write(element);
+		}
+		document.write("<hr>");
+		for(var element of Elements){
+			document.write(element);
+		}	
+		document.write("<hr>");
+
+		var nove=Elements.slice(1,4);
+		document.write(nove);
+
+		var Ui=[];
+		Ui['one']=23;
+		Ui['two']=22;
+
+		document.write("<hr>");
+
+
+
+		document.write(Ui['one']);
+		document.write(Ui);
+
+		document.createElement('Button');
+		var x=document.getElementsByTagName('p');
+	
+	</script>
+
+</head>
+<body>
+	<p>abcdefhijlmnopqrstyvwxyz</p>
+</body>
+</html>
