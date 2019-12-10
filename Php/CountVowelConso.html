@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Khetwal om 34|B	</title>	
+	<meta charset="utf-8">
+
+	<script type="text/javascript">
+		function countVowelConsonant(argument) {
+			var string="abcdefghijkl";
+			var vowels="aeiou";
+			var data=prompt("Enter something that we can process");
+			var array=data.split(' ');
+			console.log(array);
+			console.log(array.length);
+			console.log(data.length);
+			var vowel=0;
+			var consonant=0;
+			var intermediate;
+
+			for (var i = 0; i < data.length; i++) {
+				intermediate=data.toLowerCase().charAt(i);
+				console.log(intermediate); 
+				if(vowels.includes(""+intermediate)){
+					document.write(data.charAt(vowel));
+					vowel+=1;
+				}
+				else if(intermediate==" "){
+					
+				}
+				else{
+					consonant+=1;
+				}
+
+ 			}
+ 			console.log("***********************");
+ 			console.log(vowel);
+ 			console.log(consonant);
+
+ 			document.write("<h1>Vowels are  "+vowel+"</h1>");
+ 			document.write("<h1>Consonants are  "+consonant+"</h1>");
+
+
+		}
+	</script>
+</head>
+<body onload="countVowelConsonant()">
+
+</body>
+</html>
